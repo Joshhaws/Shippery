@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shippery — castaway</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="viewport">
+        <canvas id="game" width="640" height="384" tabindex="0"></canvas>
+        <div id="toast" aria-live="polite"></div>
+      </div>
+      <div id="inventory-bar">
+        <aside id="equipped-panel" aria-label="Equipped hand and item details">
+          <div class="equip-head">Equipped (active slot)</div>
+          <div class="equip-body">
+            <div id="equip-slot-icon" class="equip-slot-icon" aria-hidden="true"></div>
+            <div class="equip-text">
+              <div class="equip-titles">
+                <span id="equip-title"></span>
+                <span id="equip-subtitle"></span>
+              </div>
+              <ul id="equip-stats" class="equip-list"></ul>
+              <p id="equip-desc" class="equip-desc"></p>
+              <ul id="equip-hints" class="equip-list equip-hints"></ul>
+              <p id="equip-attack-line" class="equip-attack"></p>
+              <p id="equip-mode-line" class="equip-mode"></p>
+            </div>
+          </div>
+        </aside>
+        <div id="hotbar" aria-label="Inventory hotbar"></div>
+      </div>
+      <p id="hint">
+        WASD move · Space chests · X attack · C crafting (axe / pickaxe / sword from wood + rock) · G wood at
+        camp · B boat at camp or beach · L land · sail east past serpents to the gold buoys
+      </p>
+      <div id="crafting-overlay" class="crafting-overlay" aria-hidden="true">
+        <div class="crafting-card" role="dialog" aria-labelledby="crafting-title">
+          <h2 id="crafting-title" class="crafting-title">Crafting</h2>
+          <p class="crafting-lead">
+            Uses <strong>wood</strong> and <strong>rock</strong> from any hotbar stack. Press
+            <kbd class="kbd-mini">C</kbd> or <kbd class="kbd-mini">Esc</kbd> to close.
+          </p>
+          <p id="craft-stock" class="craft-stock" aria-live="polite"></p>
+          <ul id="craft-recipes" class="craft-recipe-list"></ul>
+        </div>
+      </div>
+      <div id="winOverlay" aria-hidden="true">
+        <div class="win-card">
+          <h2>You made it home</h2>
+          <p>You crossed the archipelago and found your way home.</p>
+          <p class="win-reload">Reload the page to play again.</p>
+        </div>
+      </div>
+    </div>
+    <script src="game.js"></script>
+  </body>
+</html>
