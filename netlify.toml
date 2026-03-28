@@ -1,0 +1,19 @@
+# Shippery — static site (no bundler).
+#
+# Netlify UI (must match this):
+#   Base directory:        (empty)
+#   Build command:         (leave empty — this file supplies it)
+#   Publish directory:     .  (dot = site root)
+#
+# Do NOT add an SPA-style redirect like "/* → /index.html" — that would serve
+# HTML for /game.js and break the game in the browser.
+
+[build]
+  publish = "."
+  # Fail the deploy with a clear log message if the main script was never committed.
+  command = "test -f game.js && test -f index.html && test -f styles.css || (echo 'BUILD FAILED: game.js (and HTML/CSS) must exist at the repo root. Add game.js, commit, push, then redeploy.' && exit 1)"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
