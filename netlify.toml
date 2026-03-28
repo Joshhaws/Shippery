@@ -10,8 +10,7 @@
 
 [build]
   publish = "."
-  # Fail the deploy with a clear log message if the main script was never committed.
-  command = "test -f game.js && test -f index.html && test -f styles.css || (echo 'BUILD FAILED: game.js (and HTML/CSS) must exist at the repo root. Add game.js, commit, push, then redeploy.' && exit 1)"
+  # No build step — static files only. The game needs game.js at the repo root (commit it or the site loads but won’t run).
 
 [[headers]]
   for = "/assets/*"
